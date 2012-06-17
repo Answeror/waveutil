@@ -1,0 +1,8 @@
+*.swp
+*.pyc
+.ropeproject/
+*/.ropeproject/
+build/
+doc/build/
+__pycache__/
+*/__pycahce__/
