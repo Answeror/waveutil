@@ -27,10 +27,10 @@ Tested on Python `2.7.1` and `3.2.3`.
 ### Matlab style IO
 
 ```python
-from waveutil.io import waveread, wavewrite
+from waveutil.io import wavread, wavwrite
 
 # work for both filename and file object
-frames, framerate = waveread('foo.wav')
+frames, framerate = wavread('foo.wav')
 # default frame rate is 44100
-wavewrite('bar.wav', frames, framerate)
+wavwrite('bar.wav', frames, framerate)
 ```
