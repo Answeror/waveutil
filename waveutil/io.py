@@ -13,6 +13,14 @@ import wave
 import numpy as np
 
 
+def parse(data, channel_count=2, sample_width=2):
+    assert sample_width == 2
+    data = np.fromstring(data, dtype=np.short)
+    data.shape = -1, channel_count
+    data = data / 32768.0
+    return data
+
+
 def wavread(f):
     """Just like ``wavread`` in Matlab.
 
@@ -35,6 +43,11 @@ def wavread(f):
     frames.shape = -1, channel_count
     frames = frames / 32768.0
     return frames, framerate
+    return parse(
+        byte_data,
+        channel_count=channel_count,
+        sample_width=sample_width
+    ), framerate
 
 
 def wavwrite(f, frames, framerate=44100, nbits=16):
@@ -79,7 +92,7 @@ def wavwrite(f, frames, framerate=44100, nbits=16):
     """
     # wrap list with 2d numpy.array
     frames = np.array(frames)
-    frames.shape = -1, 1
+    #frames.shape = -1, 1
 
     writer = wave.open(f, 'wb')
     writer.setframerate(framerate)

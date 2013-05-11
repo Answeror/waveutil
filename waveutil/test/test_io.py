@@ -28,6 +28,11 @@ def test_wavwrite():
     data, fs = io.wavread(f)
     assert_almost_equal(data, frames)
     assert_equal(fs, framerate)
+    f = StringIO()
+    io.wavwrite(f, data, fs)
+    f.seek(0)
+    frames, fs = io.wavread(f)
+    assert_almost_equal(data, frames)
 
 
 def gen_test_wav():
