@@ -32,7 +32,7 @@ class Microphone(object):
         """
         time: seconds
         """
-        frames = self.stream.read(self.framerate * time)
+        frames = self.stream.read(int(self.framerate * time))
         return io.parse(
             frames,
             channel_count=self.channel_count,
