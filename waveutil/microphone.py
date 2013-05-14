@@ -47,8 +47,12 @@ class Microphone(object):
 
 class Context(object):
 
+    def __init__(self, *args, **kargs):
+        self.args = args
+        self.kargs = kargs
+
     def __enter__(self, *args, **kargs):
-        self.m = Microphone(*args, **kargs)
+        self.m = Microphone(*self.args, **self.kargs)
         self.m.open()
         return self.m
 

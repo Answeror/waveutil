@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='waveutil',
-    version='0.1.3',
+    version='0.1.4',
     packages=['waveutil'],
     description='Provide some wave file related utilities.',
     long_description=open('README.md', 'r').read(),
